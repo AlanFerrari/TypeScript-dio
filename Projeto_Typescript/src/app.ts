@@ -12,8 +12,8 @@
 
 /****************************INCOMPLETO**************************************/
 
-var apiKey = '3f301be7381a03ad8d352314dcc3ec1d';
-//let apiKey: unknown;
+var apiKeyGlobal = '3f301be7381a03ad8d352314dcc3ec1d';
+let apiKey: unknown;
 let requestToken: string;
 let username: unknown;
 let password: any;
@@ -69,17 +69,9 @@ function preencherApi() {
 
 function validateLoginButton() {
   if (password && username && apiKey) {
-    let habilitarBotao: boolean ;
-    if (loginButton.value === 'true') {
-      habilitarBotao = false;
-      loginButton.innerHTML = habilitarBotao.toString();
-    } else {
-      habilitarBotao = true;
-      loginButton.innerHTML = habilitarBotao.toString();
-    }
-
+    loginButton.disabled = false;
   } else {
-    console.log('Preencha todos os campos!');
+    loginButton.disabled = true;
   }
 }
 
